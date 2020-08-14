@@ -20,6 +20,7 @@ test('#choose: should complain if one or fewer options are provided', (t) => {
 });
 
 test('#choose: should choose an option at random', (t) => {
+    // force 'option' by providing two identical options to choose from
     const result = choose({ author, channel }, 'option', 'option');
 
     t.true(result.includes('option'), 'Did not choose an option at random!');
