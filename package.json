@@ -1,0 +1,43 @@
+{
+    "name": "bot",
+    "version": "1.0.0",
+    "description": "AwooBot, reporting for duty!",
+    "author": {
+        "name": "Emmanuelle"
+    },
+    "contributors": [],
+    "license": "UNLICENSED",
+    "private": true,
+    "main": "src/index.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/wolfstuff/bot.git"
+    },
+    "bugs": {
+        "url": "https://github.com/wolfstuff/bot/issues"
+    },
+    "homepage": "https://github.com/wolfstuff/bot#readme",
+    "scripts": {
+        "ava": "nyc --reporter=lcov --reporter=text-summary ava --verbose test/**/*.test.js",
+        "eslint": "eslint src/**/*.js",
+        "start": "node src/index.js",
+        "test": "npm run eslint && npm run ava"
+    },
+    "engines": {
+        "node": "^12.18.2"
+    },
+    "dependencies": {
+        "cmd-parser": "github:wolfstuff/cmd-parser#v1.0",
+        "discord.js": "^12.2.0",
+        "pixl-canvas-plus": "^2.0.7",
+        "utilities": "github:wolfstuff/utilities#v1.0"
+    },
+    "devDependencies": {
+        "ava": "^3.11.1",
+        "eslint": "^7.6.0",
+        "eslint-plugin-jsdoc": "^30.2.2",
+        "nyc": "^15.1.0",
+        "proxyquire": "^2.1.3",
+        "sinon": "^9.0.3"
+    }
+}
