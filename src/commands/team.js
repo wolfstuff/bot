@@ -31,7 +31,7 @@ const teams = [ 'Blue Team', 'Gold Team', 'Green Team', 'Pink Team', 'Purple Tea
  */
 module.exports = async function team(message, team) {
     const { author, channel, guild, member } = message;
-    const newTeam = await getTeam(message, team);
+    const newTeam = await determineTeam(message, team);
 
     if (!teams.includes(newTeam)) {
         return channel.send(`<@${ author.id }>, the \`${ newTeam }\` isn't a valid role.`);
@@ -65,16 +65,16 @@ module.exports = async function team(message, team) {
  * @example
  *     const team = getTeam(message, 'blue'); // 'Blue'
  */
-async function getTeam(message, team) {
+async function determineTeam(message, team) {
     const { author, channel } = message;
 
     if (!isDefined(team)) {
         await channel.send(`If you won't pick a team, <@${ author.id }>, then I'll pick one for you!`);
+
+        return pick(teams);
     }
 
-    const newTeam = isDefined(team)
-        ? titleCase(team)
-        : pick(teams);
+    const newTeam = titleCase(team);
 
     return `${ newTeam } Team`;
 }
